@@ -14,7 +14,8 @@ def read_root(prompt: str = Query("ハッカソンに向けて一言応援メッ
         return {"error": "GEMINI_API_KEY が設定されていません。"}
     
     try:
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        # モデル名の指定を変更（gemini-1.5-flash-latest または gemini-2.5-flash を利用）
+        model = genai.GenerativeModel("gemini-1.5-flash-latest")
         response = model.generate_content(prompt)
         return {
             "prompt": prompt,
